@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model='ir.sequence' id='seq_truck_internal'>
+            <field name='name'>reg</field>
+            <field name='code'>reg_code_ti</field>
+            <field name='implementation'>no_gap</field>
+            <field name='prefix'>TI-</field>
+            <field name='padding'>5</field>
+            <field name='number_increment'>1</field>
+        </record>
+        <record model="ir.ui.view" id="truck_internal_form_view">
+            <field name="name">truck.internal.form</field>
+            <field name="model">truck.internal</field>
+            <field name="arch" type="xml">
+                <form string="Truck Transfer Form">
+                    <header>  
+                        <button name="action_move" type="object" string="Transfer" class="oe_highlight"
+                                attrs="{'invisible': ['|',
+                                                         ('state', 'not in', ['done']),
+                                                         ('stock_picking_id', '!=', False)]}"/>
+                        <field name="state" widget="statusbar" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label string="Transferencia"/>
+                                <field name="name" class="oe_inline" readonly="1"/>
+                            </h1>
+                        </div>
+                                                
+                        <group>
+                               <group col="2">
+                                <field name="product_ide"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                <field name="location_id"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>            
+                                <field name="location_dest_id" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                <field name="stock_origin"/>
+                          
+                           </group>
+                           <group>
+                                <field name="date"  attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                <field name="driver" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                <field name="car_plates" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                <field name="active" string="Activo"/>
+                                <field name="stock_destination"/>
+                            </group>  
+                        </group>                          
+
+
+                        <notebook>
+                            <page name='origen' string='Origen'>
+                                <group col="4" colspan="2">                        
+                                    <group col="2">
+                                        <field name="humidity_rate"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                        <field name="damage_rate"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="break_rate"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                        <field name="impurity_rate"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="density" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                        <field name="temperature" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>           
+                                   </group>     
+                                </group>
+
+                                <group col="2">
+                                    <group>
+                                       <field name="ticket" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}" style="width: 45%"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group col="1">
+                                        <group col="3">
+                                            <field name="input_kilos" required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                        </group>
+                                        <group col="3">
+                                            <field name="output_kilos"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                        </group>
+                                        <group col="3">
+                                            <field name="raw_kilos"  required="1" attrs="{'readonly':[('state', 'not in', ['load'])]}"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <field name="damaged_kilos"/>
+                                        <field name="broken_kilos"/>
+                                        <field name="impure_kilos"/>
+                                        <field name="humid_kilos"/>
+                                        <field name="clean_kilos"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name='destino' string='Destino'>
+                                <group col="3">                                   
+                                    <group>
+                                        <field name="humidity_rate_dest"  attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                        <field name="damage_rate_dest" attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="break_rate_dest"  attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                        <field name="impurity_rate_dest"  attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="density_dest" attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                        <field name="temperature_dest"  attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>      
+                                    </group>
+                                </group>
+                                <group col="3">
+                                    <group col="2">
+                                        <field name="ticket_dest"  attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                    </group>
+                                </group>   
+                                <group>
+                                    <group col="1">
+                                        <group col="3">
+                                            <field name="input_kilos_dest" attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                        </group>
+                                        <group col="3">
+                                            <field name="output_kilos_dest"  attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                        </group>
+                                        <group col="3">
+                                            <field name="raw_kilos_dest" attrs="{'readonly':[('state', 'not in', ['unload'])], 'required':[('state', 'in', ['unload'])]}"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <field name="damaged_kilos_dest"/>
+                                        <field name="broken_kilos_dest"/>
+                                        <field name="impure_kilos_dest"/>
+                                        <field name="humid_kilos_dest"/>
+                                        <field name="clean_kilos_dest"/>
+                                    </group> 
+                               </group>
+
+                            </page>
+
+                        </notebook>
+
+          
+                        
+                        
+                        <group string="Movimiento" col="4">
+                              <group col="2">
+                                <field name="stock_picking_id"/>
+                               </group>
+                               <group col="2">
+                                <field name="difference"/>
+                                </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="truck_internal_tree_view">
+            <field name="name">truck.internal.tree</field>
+            <field name="model">truck.internal</field>
+            <field name="arch" type="xml">
+                <tree string="Truck Internal Tree">
+                    <field name="name"/> 
+                    <field name="ticket_dest"/>
+                    <field name="driver"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                    <field name="clean_kilos" sum="clean kilos"/> 
+                    <field name="clean_kilos_dest" sum="clean kilos dest"/>
+                    <field name="difference" sum="difference"/>  
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="truck_internal_form_view_permissions">
+            <field name="name">truck.internal.form</field>
+            <field name="model">truck.internal</field>
+            <field name="inherit_id" ref="truck_internal_form_view"/>
+            <field name="groups_id" eval="[(6,0, [ref('group_truck_transfer')])]" />
+            <field name="arch" type="xml">
+                <field name="state" position="attributes">
+                    <attribute name="clickable">1</attribute>
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="truck_internal_search_view">
+            <field name="name">truck.internal.search</field>
+            <field name="model">truck.internal</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ticket"/>
+                    <field name="name"/>
+                    <field name="driver"/>
+                    <field name="ticket_dest"/> 
+                    <separator/>
+                    <group>
+                        <filter name="group_by_state" string="State"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_location" string="Location"
+                                context="{'group_by': 'location_id'}"/>
+                        <filter name="group_by_location_dest" string="Location Dest"
+                                context="{'group_by': 'location_dest_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="truck_internal_list_action">
+            <field name="name">Camion Interno</field>
+            <field name="res_model">truck.internal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first truck Internal</p>
+            </field>
+        </record>
+        <menuitem
+            id="menu_action_truck_internal_form"
+            parent="vehicle_outlet.menu_outlets"
+            action="truck_internal_list_action"
+            groups="group_truck_transfer"/>
+    
+</odoo>

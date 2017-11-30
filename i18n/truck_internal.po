@@ -1,0 +1,453 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * truck_internal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-12 18:15+0000\n"
+"PO-Revision-Date: 2017-01-12 18:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: truck_internal
+#: model:ir.actions.act_window,help:truck_internal.truck_internal_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first truck Internal</p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Create the first truck Internal</p>\n"
+"            "
+
+#. module: truck_internal
+#: field:truck.internal,break_rate:0
+msgid "Break rate"
+msgstr "Quebrado origen"
+
+#. module: truck_internal
+#: field:truck.internal,break_rate_dest:0
+msgid "Break rate dest"
+msgstr "Quebrado Destino"
+
+#. module: truck_internal
+#: field:truck.internal,broken_kilos:0
+msgid "Broken kilos"
+msgstr "Kilos quebrados origen"
+
+#. module: truck_internal
+#: field:truck.internal,broken_kilos_dest:0
+msgid "Broken kilos dest"
+msgstr "Kilos quebrados destino"
+
+#. module: truck_internal
+#: model:res.groups,name:truck_internal.group_truck_Transfer_selector
+msgid "Camiones/Transferir/Selector"
+msgstr "Camiones/Transferir/Selector"
+
+#. module: truck_internal
+#: model:res.groups,name:truck_internal.group_truck_transfer_transfer
+msgid "Camiones/Transferir/Transferir"
+msgstr "Camiones/Transferir/Transferir"
+
+#. module: truck_internal
+#: field:truck.internal,car_plates:0
+msgid "Car plates"
+msgstr "Placas"
+
+#. module: truck_internal
+#: field:truck.internal,clean_kilos:0
+msgid "Clean kilos"
+msgstr "Kilos limpios origen"
+
+#. module: truck_internal
+#: field:truck.internal,clean_kilos_dest:0
+msgid "Clean kilos dest"
+msgstr "Kilos limpios destino"
+
+#. module: truck_internal
+#: field:truck.internal,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: truck_internal
+#: field:truck.internal,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: truck_internal
+#: field:truck.internal,damage_rate:0
+msgid "Damage rate"
+msgstr "Daño origen"
+
+#. module: truck_internal
+#: field:truck.internal,damage_rate_dest:0
+msgid "Damage rate dest"
+msgstr "Daño destino"
+
+#. module: truck_internal
+#: field:truck.internal,damaged_kilos:0
+msgid "Damaged kilos"
+msgstr "Kilos dañados origen"
+
+#. module: truck_internal
+#: field:truck.internal,damaged_kilos_dest:0
+msgid "Damaged kilos dest"
+msgstr "Kilos dañados destino"
+
+#. module: truck_internal
+#: field:truck.internal,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: truck_internal
+#: help:truck.internal,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Date of the last message posted on the record."
+
+#. module: truck_internal
+#: field:truck.internal,deducted_kilos:0
+msgid "Deducted kilos"
+msgstr "Deducted kilos"
+
+#. module: truck_internal
+#: field:truck.internal,deducted_kilos_dest:0
+msgid "Deducted kilos dest"
+msgstr "Deducted kilos dest"
+
+#. module: truck_internal
+#: field:truck.internal,density:0
+msgid "Density"
+msgstr "Densidad origen"
+
+#. module: truck_internal
+#: field:truck.internal,density_dest:0
+msgid "Density dest"
+msgstr "Desidad destino"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_form_view
+msgid "Destination"
+msgstr "Destino"
+
+#. module: truck_internal
+#: field:truck.internal,difference:0
+msgid "Difference"
+msgstr "Diferencia"
+
+#. module: truck_internal
+#: field:truck.internal,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: truck_internal
+#: selection:truck.internal,state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: truck_internal
+#: field:truck.internal,driver:0
+msgid "Driver"
+msgstr "Conductor"
+
+#. module: truck_internal
+#: model:ir.model,name:truck_internal.model_truck_internal
+msgid "Email Thread"
+msgstr "Tema de Correo Electrónico"
+
+#. module: truck_internal
+#: field:truck.internal,message_follower_ids:0
+msgid "Followers"
+msgstr "Followers"
+
+#. module: truck_internal
+#: help:truck.internal,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+
+#. module: truck_internal
+#: field:truck.internal,humid_kilos:0
+msgid "Humid kilos"
+msgstr "Kilos humedos origen"
+
+#. module: truck_internal
+#: field:truck.internal,humid_kilos_dest:0
+msgid "Humid kilos dest"
+msgstr "Kilos humedos destino"
+
+#. module: truck_internal
+#: field:truck.internal,humidity_rate:0
+msgid "Humidity rate"
+msgstr "Humedad origen"
+
+#. module: truck_internal
+#: field:truck.internal,humidity_rate_dest:0
+msgid "Humidity rate dest"
+msgstr "Humedad destino"
+
+#. module: truck_internal
+#: field:truck.internal,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: truck_internal
+#: help:truck.internal,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "If checked new messages require your attention."
+
+#. module: truck_internal
+#: field:truck.internal,impure_kilos:0
+msgid "Impure kilos"
+msgstr "Kilos impuros origen"
+
+#. module: truck_internal
+#: field:truck.internal,impure_kilos_dest:0
+msgid "Impure kilos dest"
+msgstr "Kilos impuros destino"
+
+#. module: truck_internal
+#: field:truck.internal,impurity_rate:0
+msgid "Impurity rate"
+msgstr "Impureza origen"
+
+#. module: truck_internal
+#: field:truck.internal,impurity_rate_dest:0
+msgid "Impurity rate dest"
+msgstr "Impureza destino"
+
+#. module: truck_internal
+#: field:truck.internal,input_kilos:0
+msgid "Input kilos"
+msgstr "Kilos de entrada origen"
+
+#. module: truck_internal
+#: field:truck.internal,input_kilos_dest:0
+msgid "Input kilos dest"
+msgstr "Kilos de entrada destino"
+
+#. module: truck_internal
+#: field:truck.internal,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Is a Follower"
+
+#. module: truck_internal
+#: field:truck.internal,message_last_post:0
+msgid "Last Message Date"
+msgstr "Last Message Date"
+
+#. module: truck_internal
+#: field:truck.internal,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: truck_internal
+#: field:truck.internal,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: truck_internal
+#: field:truck.internal,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: truck_internal
+#: selection:truck.internal,state:0
+msgid "Load"
+msgstr "Carga"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_search_view
+msgid "Location"
+msgstr "Ubicación de origen"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_search_view
+msgid "Location Dest"
+msgstr "Ubicación de destino"
+
+#. module: truck_internal
+#: field:truck.internal,location_dest_id:0
+msgid "Location dest id"
+msgstr "Ubicación de destino"
+
+#. module: truck_internal
+#: field:truck.internal,location_id:0
+msgid "Location id"
+msgstr "Ubicación de origen"
+
+#. module: truck_internal
+#: field:truck.internal,message_ids:0
+msgid "Messages"
+msgstr "Messages"
+
+#. module: truck_internal
+#: help:truck.internal,message_ids:0
+msgid "Messages and communication history"
+msgstr "Messages and communication history"
+
+#. module: truck_internal
+#: field:truck.internal,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_form_view
+msgid "Origin"
+msgstr "Origen"
+
+#. module: truck_internal
+#: field:truck.internal,output_kilos:0
+msgid "Output kilos"
+msgstr "Kilos de salida origen"
+
+#. module: truck_internal
+#: field:truck.internal,output_kilos_dest:0
+msgid "Output kilos dest"
+msgstr "Kilos de salida destino"
+
+#. module: truck_internal
+#: field:truck.internal,product_id:0
+msgid "Product id"
+msgstr "Producto"
+
+#. module: truck_internal
+#: field:truck.internal,product_ide:0
+msgid "Product ide"
+msgstr "Producto"
+
+#. module: truck_internal
+#: field:truck.internal,quantity:0
+msgid "Quantity"
+msgstr "Quantity"
+
+#. module: truck_internal
+#: field:truck.internal,raw_kilos:0
+msgid "Raw kilos"
+msgstr "Kilos neto origen"
+
+#. module: truck_internal
+#: field:truck.internal,raw_kilos_dest:0
+msgid "Raw kilos dest"
+msgstr "Kilos neto destino"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_search_view
+#: field:truck.internal,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_form_view
+msgid "Stock Move"
+msgstr "Movimiento de almacén"
+
+#. module: truck_internal
+#: field:truck.internal,stock_destination:0
+msgid "Stock destination"
+msgstr "Movimiento por destino"
+
+#. module: truck_internal
+#: field:truck.internal,stock_origin:0
+msgid "Stock origin"
+msgstr "Movimiento por origen"
+
+#. module: truck_internal
+#: field:truck.internal,stock_picking_id:0
+msgid "Stock picking id"
+msgstr "Movimiento de almacén"
+
+#. module: truck_internal
+#: field:truck.internal,message_summary:0
+msgid "Summary"
+msgstr "Summary"
+
+#. module: truck_internal
+#: field:truck.internal,temperature:0
+msgid "Temperature"
+msgstr "Temperatura origen"
+
+#. module: truck_internal
+#: field:truck.internal,temperature_dest:0
+msgid "Temperature dest"
+msgstr "Temperatura destino"
+
+#. module: truck_internal
+#: field:truck.internal,ticket:0
+msgid "Ticket"
+msgstr "Ticket origen"
+
+#. module: truck_internal
+#: field:truck.internal,ticket_dest:0
+msgid "Ticket dest"
+msgstr "Ticket destino"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_form_view
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: truck_internal
+#: field:truck.internal,transgenic:0
+msgid "Transgenic"
+msgstr "Transgenic"
+
+#. module: truck_internal
+#: field:truck.internal,transgenic_dest:0
+msgid "Transgenic dest"
+msgstr "Transgenic dest"
+
+#. module: truck_internal
+#: model:ir.actions.act_window,name:truck_internal.truck_internal_list_action
+#: model:ir.ui.menu,name:truck_internal.menu_action_truck_internal_form
+#: view:truck.internal:truck_internal.truck_internal_form_view
+msgid "Truck Internal"
+msgstr "Transferencias"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_tree_view
+msgid "Truck Internal Tree"
+msgstr "Truck Internal Tree"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_form_view
+msgid "Truck Transfer Form"
+msgstr "Truck Transfer Form"
+
+#. module: truck_internal
+#: model:res.groups,name:truck_internal.group_truck_transfer
+msgid "Truck/Transfer"
+msgstr "Truck/Transfer"
+
+#. module: truck_internal
+#: model:res.groups,name:truck_internal.group_truck_transfer_weights
+msgid "Truck/Transfer/Weights"
+msgstr "Truck/Transfer/Weights"
+
+#. module: truck_internal
+#: selection:truck.internal,state:0
+msgid "Unload"
+msgstr "Unload"
+
+#. module: truck_internal
+#: field:truck.internal,message_unread:0
+msgid "Unread Messages"
+msgstr "Unread Messages"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_tree_view
+msgid "clean kilos"
+msgstr "Kilos limpios origen"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_tree_view
+msgid "clean kilos dest"
+msgstr "Kilos limpios destino"
+
+#. module: truck_internal
+#: view:truck.internal:truck_internal.truck_internal_tree_view
+msgid "difference"
+msgstr "Diferencia"
+
+

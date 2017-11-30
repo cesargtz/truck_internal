@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="res.groups" id="group_truck_transfer">
+            <field name="name">Camiones/Transferencias</field>
+        </record>
+        <record model="res.groups" id="group_truck_transfer_weights">
+            <field name="name">Camiones/Transferencias/Pesos</field>
+        </record>
+        <record id="group_truck_Transfer_selector" model="res.groups">
+            <field name="name">Camiones/Transferir/Selector</field>
+        </record>
+  
+</odoo>
