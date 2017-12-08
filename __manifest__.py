@@ -6,7 +6,7 @@
        View for Truck Transfer""",
 
     'description': """
-       
+
     """,
 
     'author': "Yecora",
@@ -28,9 +28,10 @@
         'security/truck_internal_access_rules.xml',
         'security/ir.model.access.csv',
         'views/truck_internal.xml',
+        'views/report_truck_transfer.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo.xml',
-    ],
+    # # only loaded in demonstration mode
+    # 'demo': [
+    #     'demo.xml',
+    # ],
 }

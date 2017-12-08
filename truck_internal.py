@@ -10,47 +10,53 @@ class truck_internal(models.Model):
 
   #  _defaults = {'name': lambda obj, cr, uid, context: obj.pool.get('ir.sequence').get(cr, uid, 'reg_code_ti'), }
     name = fields.Char('Truck Internal reference', required=True, select=True, copy=False, default=lambda self: self.env['ir.sequence'].next_by_code('reg_code_ti'), help="Unique number of the Truck Internal")
-    humidity_rate_dest = fields.Float('Humedad destino')
-    damage_rate_dest = fields.Float('Daño destino')
-    break_rate_dest = fields.Float('Quebrado destino')
-    impurity_rate_dest = fields.Float('Impureza destino')
-    
-    input_kilos_dest = fields.Float('Kilos de Entrada Destino')
-    output_kilos_dest = fields.Float('Kilos de Salida Destino')
+    humidity_rate_dest = fields.Float('Humedad')
+    damage_rate_dest = fields.Float('Daño')
+    break_rate_dest = fields.Float('Quebrado')
+    impurity_rate_dest = fields.Float('Impureza')
 
-    density_dest = fields.Float('Densidad Destino')
-    temperature_dest = fields.Float('Temperatura Destino')
-    transgenic_dest = fields.Float('Transgénico Destino')
+    input_kilos_dest = fields.Float('Kilos de Entrada')
+    output_kilos_dest = fields.Float('Kilos de Salida')
 
-    raw_kilos_dest = fields.Float('Kilos neto Destino',compute="_compute_raw_kilos_dest", store=False)
+    density_dest = fields.Float('Densidad')
+    temperature_dest = fields.Float('Temperatura')
+    transgenic_dest = fields.Float('Transgénico')
 
-    humid_kilos_dest = fields.Float('Kilos Humedos destino', compute="_compute_humid_kilos_dest", store=False)
-    damaged_kilos_dest = fields.Float('Kilos dañados destino ', compute="_compute_damaged_kilos_dest", store=False)
-    broken_kilos_dest = fields.Float('Kilos quebrados destino', compute="_compute_broken_kilos_dest", store=False)
-    impure_kilos_dest = fields.Float('Kilos impuros destino', compute="_compute_impure_kilos_dest", store=False)
+    raw_kilos_dest = fields.Float('Kilos neto',compute="_compute_raw_kilos_dest", store=False)
+
+    humid_kilos_dest = fields.Float('Kilos Humedos', compute="_compute_humid_kilos_dest", store=False)
+    damaged_kilos_dest = fields.Float('Kilos dañados ', compute="_compute_damaged_kilos_dest", store=False)
+    broken_kilos_dest = fields.Float('Kilos quebrados', compute="_compute_broken_kilos_dest", store=False)
+    impure_kilos_dest = fields.Float('Kilos impuros', compute="_compute_impure_kilos_dest", store=False)
 
     deducted_kilos_dest = fields.Float('Deducido', compute="_compute_deducted_kilos_dest", store=False)
 
-    clean_kilos_dest = fields.Float('Kilos limpios destino', compute="_compute_clean_kilos_dest", store=False)
+    clean_kilos_dest = fields.Float('Kilos limpios', compute="_compute_clean_kilos_dest", store=False)
 
-    ticket_dest = fields.Integer('Ticket')
+    # ticket_dest = fields.Integer('Ticket')
     difference = fields.Float('Diferencia', compute="_compute_difference_kilos", store=False)
     stock_origin = fields.Boolean('Movimiento por origen')
     stock_destination = fields.Boolean('Movimiento por Destino',default=True)
+    stock_type = fields.Many2one('stock.picking.type', "Tipo de Albaran")
+    owner_id = fields.Many2one('res.partner', 'Propietario',  help="Propietario", readonly=True, states={'analysis': [('readonly', False)]})
     active = fields.Boolean('Activo', default=True)
 
     state = fields.Selection([
-        ('load','Load'),
-        ('unload','Unload'),
-    	('done','Done')
-    ], default='load')
+        ('analysis','Análisis'),
+        ('weight_input','Peso de Entrada'),
+        ('weight_output','Peso de Salida'),
+        ('origin','Origen'),
+    	('done','Hecho')
+    ], default='analysis')
 
     @api.multi
     def write(self, vals, recursive=None):
         if not recursive:
-            if self.state == 'load':
-                self.write({'state': 'unload'}, 'r')
-            elif self.state == 'unload':
+            if self.state == 'weight_input':
+                self.write({'state': 'weight_output'}, 'r')
+            elif self.state == 'weight_output':
+                self.write({'state': 'origin'}, 'r')
+            elif self.state == 'origin':
                 self.write({'state': 'done'}, 'r')
 
         res = super(truck_internal, self).write(vals)
@@ -58,7 +64,7 @@ class truck_internal(models.Model):
 
     @api.model
     def create(self, vals):
-        vals['state'] = 'unload'
+        vals['state'] = 'weight_input'
         res = super(truck_internal, self).create(vals)
         return res
 
@@ -78,7 +84,7 @@ class truck_internal(models.Model):
         json_data = json.loads(response.text)
         self.input_kilos = float(json_data['peso_entrada'])
         self.output_kilos = float(json_data['peso_salida'])
-        self.raw_kilos = float(json_data['peso_neto']) 
+        self.raw_kilos = float(json_data['peso_neto'])
 
     @api.one
     @api.depends('input_kilos', 'output_kilos')
@@ -138,7 +144,7 @@ class truck_internal(models.Model):
     def _compute_difference_kilos(self):
        self.difference = float(self.clean_kilos_dest) - float(self.clean_kilos)
 
-     
+
     @api.onchange('stock_origin', 'stock_destination')
     def _change_stock_create(self):
         if (self.stock_origin):
